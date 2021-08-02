@@ -38,7 +38,7 @@ This directory contains the AIS328DQ component drivers.
 
 ### First release
 
-- First official release
+- First official release [ref. DS v3.0]
 
 ##
 
