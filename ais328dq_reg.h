@@ -743,8 +743,8 @@ int32_t ais328dq_int1_on_threshold_mode_get(const stmdev_ctx_t *ctx,
 int32_t ais328dq_int1_src_get(const stmdev_ctx_t *ctx,
                               ais328dq_int1_src_t *val);
 
-int32_t ais328dq_int1_treshold_set(const stmdev_ctx_t *ctx, uint8_t val);
-int32_t ais328dq_int1_treshold_get(const stmdev_ctx_t *ctx, uint8_t *val);
+int32_t ais328dq_int1_threshold_set(const stmdev_ctx_t *ctx, uint8_t val);
+int32_t ais328dq_int1_threshold_get(const stmdev_ctx_t *ctx, uint8_t *val);
 
 int32_t ais328dq_int1_dur_set(const stmdev_ctx_t *ctx, uint8_t val);
 int32_t ais328dq_int1_dur_get(const stmdev_ctx_t *ctx, uint8_t *val);
@@ -776,8 +776,8 @@ int32_t ais328dq_int2_on_threshold_mode_get(const stmdev_ctx_t *ctx,
 int32_t ais328dq_int2_src_get(const stmdev_ctx_t *ctx,
                               ais328dq_int2_src_t *val);
 
-int32_t ais328dq_int2_treshold_set(const stmdev_ctx_t *ctx, uint8_t val);
-int32_t ais328dq_int2_treshold_get(const stmdev_ctx_t *ctx, uint8_t *val);
+int32_t ais328dq_int2_threshold_set(const stmdev_ctx_t *ctx, uint8_t val);
+int32_t ais328dq_int2_threshold_get(const stmdev_ctx_t *ctx, uint8_t *val);
 
 int32_t ais328dq_int2_dur_set(const stmdev_ctx_t *ctx, uint8_t val);
 int32_t ais328dq_int2_dur_get(const stmdev_ctx_t *ctx, uint8_t *val);
@@ -799,8 +799,8 @@ int32_t ais328dq_int1_6d_mode_get(const stmdev_ctx_t *ctx,
 int32_t ais328dq_int1_6d_src_get(const stmdev_ctx_t *ctx,
                                  ais328dq_int1_src_t *val);
 
-int32_t ais328dq_int1_6d_treshold_set(const stmdev_ctx_t *ctx, uint8_t val);
-int32_t ais328dq_int1_6d_treshold_get(const stmdev_ctx_t *ctx,
+int32_t ais328dq_int1_6d_threshold_set(const stmdev_ctx_t *ctx, uint8_t val);
+int32_t ais328dq_int1_6d_threshold_get(const stmdev_ctx_t *ctx,
                                       uint8_t *val);
 
 typedef enum
@@ -817,8 +817,8 @@ int32_t ais328dq_int2_6d_mode_get(const stmdev_ctx_t *ctx,
 int32_t ais328dq_int2_6d_src_get(const stmdev_ctx_t *ctx,
                                  ais328dq_int2_src_t *val);
 
-int32_t ais328dq_int2_6d_treshold_set(const stmdev_ctx_t *ctx, uint8_t val);
-int32_t ais328dq_int2_6d_treshold_get(const stmdev_ctx_t *ctx,
+int32_t ais328dq_int2_6d_threshold_set(const stmdev_ctx_t *ctx, uint8_t val);
+int32_t ais328dq_int2_6d_threshold_get(const stmdev_ctx_t *ctx,
                                       uint8_t *val);
 
 /**
