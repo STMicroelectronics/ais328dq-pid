@@ -317,8 +317,8 @@ int32_t ais328dq_data_rate_get(const stmdev_ctx_t *ctx, ais328dq_dr_t *val)
       *val = AIS328DQ_ODR_1Hz;
       break;
 
-    case AIS328DQ_ODR_5Hz2:
-      *val = AIS328DQ_ODR_5Hz2;
+    case AIS328DQ_ODR_2Hz:
+      *val = AIS328DQ_ODR_2Hz;
       break;
 
     case AIS328DQ_ODR_5Hz:
