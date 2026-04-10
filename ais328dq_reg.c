@@ -139,7 +139,7 @@ int32_t ais328dq_axis_x_data_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl_reg1.xen = (uint8_t) (val & 0x01);
+    ctrl_reg1.xen = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG1,
                              (uint8_t *)&ctrl_reg1, 1);
   }
@@ -187,7 +187,7 @@ int32_t ais328dq_axis_y_data_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl_reg1.yen = (uint8_t) (val & 0x01);
+    ctrl_reg1.yen = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG1,
                              (uint8_t *)&ctrl_reg1, 1);
   }
@@ -235,7 +235,7 @@ int32_t ais328dq_axis_z_data_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl_reg1.zen = (uint8_t) (val & 0x01);
+    ctrl_reg1.zen = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG1,
                              (uint8_t *)&ctrl_reg1, 1);
   }
@@ -284,7 +284,7 @@ int32_t ais328dq_data_rate_set(const stmdev_ctx_t *ctx, ais328dq_dr_t val)
   if (ret == 0)
   {
     ctrl_reg1.pm = (uint8_t)val & 0x07U;
-    ctrl_reg1.dr = ((uint8_t)val & 0x30U) >> 4;
+    ctrl_reg1.dr = ((uint8_t)val >> 4) & 0x03U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG1,
                              (uint8_t *)&ctrl_reg1, 1);
   }
@@ -378,7 +378,7 @@ int32_t ais328dq_reference_mode_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg2.hpm = (uint8_t) (val & 0x03);
+    ctrl_reg2.hpm = (uint8_t)val & 0x03U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG2,
                              (uint8_t *)&ctrl_reg2, 1);
   }
@@ -440,7 +440,7 @@ int32_t ais328dq_full_scale_set(const stmdev_ctx_t *ctx, ais328dq_fs_t val)
 
   if (ret == 0)
   {
-    ctrl_reg4.fs = (uint8_t) (val & 0x03);
+    ctrl_reg4.fs = (uint8_t)val & 0x03U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG4,
                              (uint8_t *)&ctrl_reg4, 1);
   }
@@ -505,7 +505,7 @@ int32_t ais328dq_block_data_update_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl_reg4.bdu = (uint8_t) (val & 0x01);
+    ctrl_reg4.bdu = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG4,
                              (uint8_t *)&ctrl_reg4, 1);
   }
@@ -659,7 +659,7 @@ int32_t ais328dq_boot_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl_reg2.boot = (uint8_t) (val & 0x01);
+    ctrl_reg2.boot = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG2,
                              (uint8_t *)&ctrl_reg2, 1);
   }
@@ -707,7 +707,7 @@ int32_t ais328dq_self_test_set(const stmdev_ctx_t *ctx, ais328dq_st_t val)
 
   if (ret == 0)
   {
-    ctrl_reg4.st = (uint8_t) (val & 0x07);
+    ctrl_reg4.st = (uint8_t)val & 0x07U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG4,
                              (uint8_t *)&ctrl_reg4, 1);
   }
@@ -773,7 +773,7 @@ int32_t ais328dq_data_format_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg4.ble = (uint8_t) (val & 0x01);
+    ctrl_reg4.ble = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG4,
                              (uint8_t *)&ctrl_reg4, 1);
   }
@@ -849,7 +849,7 @@ int32_t ais328dq_hp_bandwidth_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg2.hpcf = (uint8_t) (val & 0x03);
+    ctrl_reg2.hpcf = (uint8_t)val & 0x03U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG2,
                              (uint8_t *)&ctrl_reg2, 1);
   }
@@ -920,7 +920,7 @@ int32_t ais328dq_hp_path_set(const stmdev_ctx_t *ctx, ais328dq_hpen_t val)
   if (ret == 0)
   {
     ctrl_reg2.hpen = (uint8_t)val & 0x03U;
-    ctrl_reg2.fds = ((uint8_t)val & 0x04U) >> 2;
+    ctrl_reg2.fds = ((uint8_t)val >> 2) & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG2,
                              (uint8_t *)&ctrl_reg2, 1);
   }
@@ -1077,7 +1077,7 @@ int32_t ais328dq_spi_mode_set(const stmdev_ctx_t *ctx, ais328dq_sim_t val)
 
   if (ret == 0)
   {
-    ctrl_reg4.sim = (uint8_t) (val & 0x01);
+    ctrl_reg4.sim = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG4,
                              (uint8_t *)&ctrl_reg4, 1);
   }
@@ -1152,7 +1152,7 @@ int32_t ais328dq_pin_int1_route_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg3.i1_cfg = (uint8_t) (val & 0x03);
+    ctrl_reg3.i1_cfg = (uint8_t)val & 0x03U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG3,
                              (uint8_t *)&ctrl_reg3, 1);
   }
@@ -1224,7 +1224,7 @@ int32_t ais328dq_int1_notification_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg3.lir1 = (uint8_t) (val & 0x01);
+    ctrl_reg3.lir1 = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG3,
                              (uint8_t *)&ctrl_reg3, 1);
   }
@@ -1288,7 +1288,7 @@ int32_t ais328dq_pin_int2_route_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg3.i2_cfg = (uint8_t) (val & 0x03);
+    ctrl_reg3.i2_cfg = (uint8_t)val & 0x03U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG3,
                              (uint8_t *)&ctrl_reg3, 1);
   }
@@ -1360,7 +1360,7 @@ int32_t ais328dq_int2_notification_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg3.lir2 = (uint8_t) (val & 0x01);
+    ctrl_reg3.lir2 = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG3,
                              (uint8_t *)&ctrl_reg3, 1);
   }
@@ -1423,7 +1423,7 @@ int32_t ais328dq_pin_mode_set(const stmdev_ctx_t *ctx, ais328dq_pp_od_t val)
 
   if (ret == 0)
   {
-    ctrl_reg3.pp_od = (uint8_t) (val & 0x01);
+    ctrl_reg3.pp_od = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG3,
                              (uint8_t *)&ctrl_reg3, 1);
   }
@@ -1486,7 +1486,7 @@ int32_t ais328dq_pin_polarity_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    ctrl_reg3.ihl = (uint8_t) (val & 0x01);
+    ctrl_reg3.ihl = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG3,
                              (uint8_t *)&ctrl_reg3, 1);
   }
@@ -1619,7 +1619,7 @@ int32_t ais328dq_int1_on_threshold_mode_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    int1_cfg.aoi = (uint8_t) (val & 0x01);
+    int1_cfg.aoi = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_INT1_CFG,
                              (uint8_t *)&int1_cfg, 1);
   }
@@ -1851,7 +1851,7 @@ int32_t ais328dq_int2_on_threshold_mode_set(const stmdev_ctx_t *ctx,
 
   if (ret == 0)
   {
-    int2_cfg.aoi = (uint8_t) (val & 0x01);
+    int2_cfg.aoi = (uint8_t)val & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_INT2_CFG,
                              (uint8_t *)&int2_cfg, 1);
   }
@@ -2037,7 +2037,7 @@ int32_t ais328dq_wkup_to_sleep_set(const stmdev_ctx_t *ctx, uint8_t val)
 
   if (ret == 0)
   {
-    ctrl_reg5.turnon = (uint8_t) (val & 0x03);
+    ctrl_reg5.turnon = (uint8_t)val & 0x03U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_CTRL_REG5,
                              (uint8_t *)&ctrl_reg5, 1);
   }
@@ -2099,7 +2099,7 @@ int32_t ais328dq_int1_6d_mode_set(const stmdev_ctx_t *ctx,
   if (ret == 0)
   {
     int1_cfg._6d = (uint8_t)val & 0x01U;
-    int1_cfg.aoi = ((uint8_t)val & 0x02U) >> 1;
+    int1_cfg.aoi = ((uint8_t)val >> 1) & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_INT1_CFG, (uint8_t *)&int1_cfg, 1);
   }
 
@@ -2227,7 +2227,7 @@ int32_t ais328dq_int2_6d_mode_set(const stmdev_ctx_t *ctx,
   if (ret == 0)
   {
     int2_cfg._6d = (uint8_t)val & 0x01U;
-    int2_cfg.aoi = ((uint8_t)val & 0x02U) >> 1;
+    int2_cfg.aoi = ((uint8_t)val >> 1) & 0x01U;
     ret = ais328dq_write_reg(ctx, AIS328DQ_INT2_CFG,
                              (uint8_t *)&int2_cfg, 1);
   }
